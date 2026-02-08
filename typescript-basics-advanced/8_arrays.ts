@@ -43,3 +43,7 @@ console.log(filteredArray); // Output: [2, 4]
 
 // For each loop to iterate over array elements
 fruits.forEach((temp)=> console.log(temp));
+
+let fruitsNewArray: string[] = ["Apple", 'Banana', "Cherry"];
+let student1Data: any[] = ["Vignesh", 30, true];
+let student2Data: any[] = [true, 25, "Jane Doe"];
