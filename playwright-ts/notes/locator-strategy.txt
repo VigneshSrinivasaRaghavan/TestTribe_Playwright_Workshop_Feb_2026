@@ -1,0 +1,64 @@
+Tag and Attribute
+<div
+<span
+<input
+<a
+<p
+
+Attribute + Values
+id
+class
+data-test-id
+placeholder
+name
+
+<input data-v-1f99f73c="" class="oxd-input oxd-input--active" name="username" placeholder="Username" autofocus="" data-sharkid="__0">
+
+Priority of Attributes
+- id --> uniqueness. Because its given manually by developers
+- name
+- data-test-id
+- placeholder
+- class --> Always will be non-unique
+
+---
+
+<input class="input_error form_input" placeholder="Username" type="text" data-test="username" id="user-name" name="user-name" autocorrect="off" autocapitalize="none" value="" data-sharkid="__0">
+
+
+Playwright --> native playwright locator strategy or css/xpath
+
+CSS - Always prefer for CSS
+
+
+Xpath - Slower
+
+Syntax
+CSS ---> tag[attribute="value"]
+Xpath ---> //tag[@attribute="value"]
+
+input[id="user-name"]
+//input[@id="user-name"]
+
+input[name="user-name"]
+
+// Strategy for class varies compared to id,name
+1. For Css using the dot operator --> .classValue
+
+2. CSS - Use the filtering way --> starts-with, ends-with, contains
+input[class="oxd-input oxd-a oxd-b oxd-c oxd-input--active"]
+stats-with ---> ^ --> input[class^="oxd-input"]
+ends-with ---> $ --> input[class$="oxd-input--active"] or input[class$="active"] 
+contains-with --> * --> input[class*="oxd-input"]
+
+3. Combine css/xpath with other attributes
+input[class^="oxd-input"][placeholder="Username"]
+//input[@class="oxd-input oxd-input--active"][@placeholder="Username"]
+
+Order of the locator present in DOM
+(//input[@class="oxd-input oxd-input--active"][@placeholder="Username"])[1] --> Highlighting the 1st element
+(//input[@class="oxd-input oxd-input--active"][@placeholder="Username"])[2] --> Highlighting the 2nd element
+
+# - Property
+# is for identifying the identifying
+Eg - input#username
