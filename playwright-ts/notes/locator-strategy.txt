@@ -60,5 +60,5 @@ Order of the locator present in DOM
 (//input[@class="oxd-input oxd-input--active"][@placeholder="Username"])[2] --> Highlighting the 2nd element
 
 # - Property
-# is for identifying the identifying
+# is for identifying the id
 Eg - input#username
