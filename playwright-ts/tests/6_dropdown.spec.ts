@@ -10,7 +10,7 @@ test('Single Static DropDown Handling', async ({ page }) => {
     await expect(page.locator('#Skills')).toHaveText('AutoCAD');
 });
 
-test.only('Multi Static DropDown Handling', async ({ page }) => {
+test('Multi Static DropDown Handling', async ({ page }) => {
     await page.goto('https://www.lambdatest.com/selenium-playground/select-dropdown-demo');
     await page.selectOption('#multi-select', [
         { value: 'California' },

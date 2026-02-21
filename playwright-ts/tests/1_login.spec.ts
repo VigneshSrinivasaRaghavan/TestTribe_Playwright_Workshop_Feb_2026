@@ -6,8 +6,8 @@ await page.locator('input[name="username"]').fill('Admin');
 await page.locator('input[name="password"]').fill('admin123');
 await page.locator('button[type="submit"]').click();
 
-//Assertion
-expect(page.url()).toBe('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+//Assertion – wait for navigation so it's stable across browsers
+await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
 
 })
 
