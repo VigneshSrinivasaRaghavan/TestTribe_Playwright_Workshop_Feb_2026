@@ -3,6 +3,16 @@ import { DateTime } from 'luxon';
 
 // dateString format: MMMM yyyy (e.g. "February 2026")
 async function selectDate(page: Page, dateString: string, dayString: string) {
+  /*
+   6 formats in calendar
+   October 2024 -- MMMM yyyy
+   Oct 2024 -- MMM yyyy
+   October 24 -- MMMM yy
+   Oct 24 -- MMM yy
+   10/2024 -- MM/yyyy
+   10/24 -- MM/yy
+  */
+
   const month = page.locator('span.ui-datepicker-month');
   const year = page.locator('span.ui-datepicker-year');
   const prevButton = page.locator('a[title="Prev"]');
@@ -28,7 +38,7 @@ test('Using Luxon', async ({ page }) => {
   await page.goto('https://demo.automationtesting.in/Datepicker.html');
   await page.locator('button.fc-cta-consent').click();
 
-  // Past Date
+ // Past Date
   await selectDate(page, 'September 2024', '23');
   await page.waitForTimeout(2000);
   await page.reload();

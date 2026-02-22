@@ -2,7 +2,15 @@
   "name": "playwright-ts",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "clean:reports": "rimraf allure-report allure-results && mkdirp allure-report allure-results",
+    "generate:reports": "npx allure generate --single-file ./allure-results --clean",
+    "open:reports": "npx allure open ./allure-report",
+    "execute:script": "npx playwright test",
+    "pretest": "npm run clean:reports",
+    "posttest": "npm run generate:reports && npm run open:reports",
+    "test": "npm run execute:script"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -11,6 +19,11 @@
     "@playwright/test": "^1.58.2",
     "@types/luxon": "^3.7.1",
     "@types/node": "^25.2.2",
-    "luxon": "^3.7.2"
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.5",
+    "csv-parse": "^6.1.0",
+    "luxon": "^3.7.2",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^6.1.3"
   }
 }
