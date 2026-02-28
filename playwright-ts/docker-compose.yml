@@ -1,0 +1,8 @@
+services:
+  playwright-test:
+    image: playwright-custom-image
+    build: .
+    container__name: playwright-docker-container
+    command: ["npm", "run", "test"]
+    volumes:
+      - .:/app
